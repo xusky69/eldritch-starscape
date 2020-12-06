@@ -7,7 +7,8 @@ head, body {
     position: absolute;
     left: 50%;
     top: 50%;
-    max-width: 35%;
+    min-width: 35%;
+    max-width: 40%;
     transform: translate(-50%, -50%);
 }
 
@@ -29,13 +30,15 @@ head, body {
     cursor: pointer;
     margin-left: auto;
     margin-right: auto;
-    max-width: 40% ;
+    min-width: 35%;
+    max-width: 40%;
     -webkit-transition: all 1s ease; 
     -moz-transition: all 1s ease; 
     -o-transition: all 1s ease; 
     -ms-transition: all 1s ease; 
     transition: all 1.5s ease; 
 }
+
 #logo:hover {
     filter: drop-shadow(0px 0px 0.75em crimson);
 }
