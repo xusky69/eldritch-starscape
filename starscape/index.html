@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Starscape</title>
+        <style>
+            body { background: #000; }
+        </style>  
+    </head>
+    <body>
+
+        <script src='https://connect.soundcloud.com/sdk.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.17/p5.js'></script>
+        <script src='https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.17/addons/p5.sound.js'></script>
+
+        <script>
+            // Based on code from here: http://funprogramming.org/58-Travel-through-space-use-an-array-to-move-stars.html
+            var x = [150];
+            var y = [150];
+            var speed = [150];
+            var size = [150];
+
+            function setup() {
+                createCanvas(windowWidth, windowHeight);
+                strokeWeight(2);
+                fill(255);
+
+                for (var i = 0; i < 150; i++) {
+                    x[i] = random(0, windowWidth);
+                    y[i] = random(0, windowHeight);
+                    speed[i] = random(0.75, 2);
+                    size[i] = random(int(5, 8));
+                }
+            }
+
+            function draw() {
+                background(0);
+                for (var i = 0; i < 150; i++) {
+                    ellipse(x[i], y[i], size[i], size[i]);
+                    x[i] = x[i] - speed[i];
+                    if (x[i] < 0) {
+                        x[i] = windowWidth;
+                    }
+                }
+            }
+
+            setup();
+            draw();
+
+        </script>
+    </body>
+</html>

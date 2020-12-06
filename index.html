@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>The forgotten ones</title>
+        <link rel="stylesheet" href="style.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class='centered-element'>
+            <img id='logo' src="media/logo.png" alt="missing image" onclick="playTrack()">
+            <p class='quote-text'>
+                "The most merciful thing in the world, I think, 
+                is the inability of the human mind to correlate all its contents. 
+                We live on a placid island of ignorance in the midst of black seas of infinity, 
+                and it was not meant that we should voyage far."
+            </p>
+            <p class='quote-text' id='author'> 
+                H.P. Lovecraft 
+            </p>
+        </div>
+        <audio id='backtrack'>
+            <source src="media/track.mp3", type="audio/mpeg">
+        </audio>
+        <button type='button' class='play-button' onclick='playButton()' id='audio-button'></button>
+
+    <script src="script.js"></script>
+    </body>
+</html>

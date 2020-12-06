@@ -1,0 +1,84 @@
+head, body {
+    background-color: black;
+    margin: 0%;
+}
+
+.centered-element {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    max-width: 35%;
+    transform: translate(-50%, -50%);
+}
+
+.quote-text{
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: oblique;
+    font-size: 140%;
+    text-align: center;
+}
+
+#author {
+    font-style: normal;
+   text-align: right;
+}
+
+#logo {
+    display: block;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 40% ;
+    -webkit-transition: all 1s ease; 
+    -moz-transition: all 1s ease; 
+    -o-transition: all 1s ease; 
+    -ms-transition: all 1s ease; 
+    transition: all 1.5s ease; 
+}
+#logo:hover {
+    filter: drop-shadow(0px 0px 0.75em crimson);
+}
+
+.play-button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 16px;
+    margin-top: 9px;
+    border-top: 10px solid transparent;
+    border-left: 17.5px solid white;
+    border-bottom: 10px solid transparent;
+}
+
+.stop-button {
+background-color: transparent;
+border: none;
+color: white;
+text-align: center;
+text-decoration: none;
+display: inline-block;
+cursor: pointer;
+margin-left: 16px;
+margin-top: 9px;
+border-top: 10px solid white;
+border-left: 5px solid white;
+border-bottom: 10px solid white;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+	}
+	70% {
+		transform: scale(1);
+		filter: drop-shadow(0px 0px 0.5em crimson);
+	}
+	100% {
+		transform: scale(0.95);
+	}
+}
