@@ -1,0 +1,12 @@
+.circle {
+    margin: 0%;
+    position: fixed;
+    display: block;
+    left: 20%;
+    top: 20%;
+    background-color: black;
+}
+
+body {
+    background-color: black;
+}
