@@ -1,4 +1,4 @@
-// fucntion taken from http://jsfiddle.net/m1erickson/8j6kdf4o/
+// function taken from http://jsfiddle.net/m1erickson/8j6kdf4o/
 function drawStar(ctx, cx, cy, spikes, outerRadius, innerRadius, rotation) {
     var rot = Math.PI / 2 * 3
     var x = cx;

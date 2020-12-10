@@ -2,9 +2,26 @@
 /**** body  *************************/
 /************************************/
 
-head, body {
+head, html, body {
     background-color: black;
     margin: 0%;
+    height: 100%;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: black;
+    animation: fade-in 5.0s ease-in both;
+}
+
+.fullScreen { 
+    height: 100%; 
 }
 
 /************************************/
@@ -12,15 +29,16 @@ head, body {
 /************************************/
 
 .centered-element {
-    position: absolute;
+    position: fixed;
     left: 50%;
     top: 50%;
     min-width: 35%;
-    max-width: 40%;
+    max-width: 45%;
     transform: translate(-50%, -50%);
+    z-index: 2;
 
-    -webkit-animation: fade-in 3.0s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-    animation: fade-in 3.0s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    /* -webkit-animation: fade-in 2.0s ease-in both; */
+    animation: fade-in 2.0s ease-in both;
 
 }
 
@@ -39,7 +57,7 @@ head, body {
 }
 
 /************************************/
-/****  logo and text  ***************/
+/****  logo  *************************/
 /************************************/
 
 #logo {
@@ -50,7 +68,7 @@ head, body {
     min-width: 35%;
     max-width: 40%;
     
-    -webkit-transition: all 1.5s ease;
+    /* -webkit-transition: all 1.5s ease; */
     transition: all 1.5s ease;
 }
 
@@ -58,27 +76,9 @@ head, body {
     filter: drop-shadow(0px 0px 0.75em crimson);
 }
 
-/* #logo:active {
-    -webkit-animation: fade-out 5s ease-out both;
-    animation: fade-out 5s ease-out both;
-} */
-
-.fade-out-element{
-    -webkit-animation: fade-out 1s ease-out both;
-    animation: fade-out 1s ease-out both;
-}
-
-.fade-in-element{
-    -webkit-animation: fade-in 2.0s ease-in both;
-    animation: fade-in 2.0s ease-in both;
-}
-
-
 /************************************/
-/**** audio button  *****************/
+/****  audio button  ****************/
 /************************************/
-
-
 
 .stop-button {
     /* positioning */
@@ -88,6 +88,7 @@ head, body {
     left: 98%;
     top: 96.5%;
     display: inline-block;
+    z-index: 3;
 
 
     /* appearance */
@@ -112,23 +113,33 @@ head, body {
     left: 98%;
     top: 96.5%;
     display: inline-block;
+    z-index: 3;
 
     /* appearance */
     cursor: pointer;
     background-color: transparent;
     border: none;
-    color: white;
+    background-color: white;
     text-align: center;
     text-decoration: none;
 
-    border-top: 10px solid white;
-    border-left: 5px solid white;
-    border-bottom: 10px solid white;
+    height: 20px;
+    width: 20px;
 }
 
 /************************************/
 /****  animations  ******************/
 /************************************/
+
+.fade-out-element{
+    /* -webkit-animation: fade-out 1s ease-out both; */
+    animation: fade-out 2.0s ease-out both;
+}
+
+.fade-in-element{
+    /* -webkit-animation: fade-in 2.0s ease-in both; */
+    animation: fade-in 2.0s ease-in both;
+}
 
 @keyframes pulse {
 	0% {
@@ -142,29 +153,33 @@ head, body {
 		transform: scale(0.95);
 	}
 }
- @-webkit-keyframes fade-in {
+ /* @-webkit-keyframes fade-in {
     0% {
       opacity: 0;
     }
     100% {
       opacity: 1;
     }
-}
+} */
 @keyframes fade-in {
-0% {
-    opacity: 0;
-}
-100% {
-    opacity: 1;
-}
+    0% {
+        /* transform: translate(-50%, -50%) scale(0.95); */
+        opacity: 0;
+    }
+    100% {
+        /* transform: translate(-50%, -50%) scale(1.0); */
+        opacity: 1;   
+    }
 }
 
 @keyframes fade-out {
     0% {
       opacity: 1;
+      /* transform: translate(-50%, -50%) scale(1.0); */
     }
     100% {
       opacity: 0;
+      /* transform: translate(-50%, -50%) scale(0.9); */
     }
   }
 }
