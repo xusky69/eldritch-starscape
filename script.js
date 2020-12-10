@@ -13,6 +13,14 @@ function distanceR2(x1, y1, x2, y2){
     return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 };
 
+function windowResize() {
+
+    var canvas = document.getElementById('starfield');
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+};
+  
+
 // drawStar function taken from http://jsfiddle.net/m1erickson/8j6kdf4o/
 function drawStar(ctx, cx, cy, spikes, outerRadius, innerRadius, rotation) {
     var rot = Math.PI / 2 * 3
@@ -118,6 +126,8 @@ class StarField{
         canvas_tag.setAttribute('id', 'starfield');
         canvas_tag.width = this.X;
         canvas_tag.height = this.Y;
+
+        window.addEventListener('resize', windowResize);
     
         document.body.appendChild(div_tag);
         div_tag.appendChild(canvas_tag);
@@ -126,6 +136,9 @@ class StarField{
             this.stars[i].checkBoundaries();
             this.stars[i].draw();
         }
+
+        
+
     
     };
 
