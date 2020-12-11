@@ -101,22 +101,6 @@ class Star{
 
 class StarField{
 
-    constructor(n_stars, max_speed){
-
-        this.n_stars = n_stars
-        this.X = window.screen.width;
-        this.Y = window.screen.height;
-
-        this.stars = [];
-
-        for (let i=0; i < n_stars; i++){
-
-            this.stars[i] = new Star(this.X, this.Y, max_speed);
-            // console.log(this.stars[i].x)
-        }
-            
-    };
-
     spawn(){
 
         var div_tag = document.createElement('div');
@@ -136,9 +120,6 @@ class StarField{
             this.stars[i].checkBoundaries();
             this.stars[i].draw();
         }
-
-        
-
     
     };
 
@@ -149,7 +130,8 @@ class StarField{
             var star = this.stars[i];
             var increment = Math.min(star.speed, Math.abs(star.speed / star.slope));
             
-            star.x += (star.x > 0) ? increment : -increment;
+            star.x += (star.x > 0) ? increment : -increment ;
+
             star.y = star.slope * star.x;
             
             star.opacity += star.speed / 100;
@@ -167,6 +149,36 @@ class StarField{
             this.stars[i].draw();
         }
     }
+
+    constructor(n_stars, max_speed){
+
+        this.n_stars = n_stars
+        this.X = window.screen.width;
+        this.Y = window.screen.height;
+
+        this.stars = [];
+
+        for (let i=0; i < n_stars; i++){
+
+            this.stars[i] = new Star(this.X, this.Y, max_speed);
+            // console.log(this.stars[i].x)
+        }
+    }
+};
+
+class Symbol{
+    constructor(){
+        this.symbol_tag = document.createElement('img');
+        this.symbol_tag.setAttribute('id', 'symbol');
+        this.symbol_tag.setAttribute('src', 'media/azatoth.png');
+        this.symbol_tag.setAttribute('alt', 'missing image');
+        // this.symbol_tag.classList.add('fade-in-element');
+        document.body.appendChild(this.symbol_tag);
+        // alert('yolo')
+    }
+    // static onClick(symbol){
+    //     null;
+    // }
 };
 
 
@@ -182,8 +194,7 @@ function onclickLogo(){
 
     intro_div = document.getElementById('logo-div');
     logo = document.getElementById('logo');
-    setTimeout(() => logo.classList.add('fade-out-element'), 2000);
-    
+    setTimeout(() => logo.classList.add('fade-out-element'), 1750);
 
     text = document.getElementById('quote');
     text.classList.add('fade-out-element');
@@ -192,8 +203,8 @@ function onclickLogo(){
 
     setTimeout(() => intro_div.remove(), 4000);
     setTimeout(() => starfield.spawn(), 3000);
+    setTimeout(() => new Symbol(), 5000);
     setTimeout(() => window.requestAnimationFrame(draw), 3000);
-
 
 }
 
@@ -230,3 +241,9 @@ function audioButton(){
     tag.setAttribute('onclick', 'playButton()');
     document.body.appendChild(tag);
 }
+
+// var mouse_speed = [];
+
+// document.addEventListener("mousemove", function(ev){
+//     mouse_speed = [ev.movementX, ev.movementY]
+// }, false);
