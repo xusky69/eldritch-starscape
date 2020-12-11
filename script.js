@@ -51,7 +51,7 @@ function drawStar(ctx, cx, cy, spikes, outerRadius, innerRadius, rotation) {
 
 function draw(){
 
-    starfield.update();
+    page_objects['starfield'].update();
 
     window.requestAnimationFrame(draw);
 
@@ -186,53 +186,6 @@ class Symbol{
 /**** Intro page  *******************/
 /************************************/
 
-function onclickLogo(){
-    playTrack();
-    audioButton();
-
-    starfield = new StarField(100, 3);
-
-    intro_div = document.getElementById('logo-div');
-    logo = document.getElementById('logo');
-    setTimeout(() => logo.classList.add('fade-out-element'), 1750);
-
-    text = document.getElementById('quote');
-    text.classList.add('fade-out-element');
-    auth = document.getElementById('author');
-    auth.classList.add('fade-out-element');
-
-    setTimeout(() => intro_div.remove(), 4000);
-    setTimeout(() => starfield.spawn(), 3000);
-    setTimeout(() => new Symbol(), 5000);
-    setTimeout(() => window.requestAnimationFrame(draw), 3000);
-
-}
-
-function playTrack(){
-    var backtrack = document.getElementById('backtrack');
-    backtrack.play();
-}
-
-function playButton(){
-    var audio_btn = document.getElementById('audio-button');
-    var track = document.getElementById('backtrack');
-    
-    if (audio_btn.classList.contains('play-button')){
-        audio_btn.classList.add('stop-button');
-        audio_btn.classList.remove('play-button');
-        track.pause();
-    } else {
-        audio_btn.classList.add('play-button');
-        audio_btn.classList.remove('stop-button');
-        track.play();
-    }
-}
-
-function selfDestroy(el) {
-    var element = el;
-    element.remove();
-}
-
 function audioButton(){
     var tag = document.createElement('button');
     tag.setAttribute('id', 'audio-button');
@@ -242,8 +195,104 @@ function audioButton(){
     document.body.appendChild(tag);
 }
 
-// var mouse_speed = [];
+class CthulhuLogo{
 
-// document.addEventListener("mousemove", function(ev){
-//     mouse_speed = [ev.movementX, ev.movementY]
-// }, false);
+    constructor(){
+
+        this.div_tag = document.createElement('div');
+        this.div_tag.setAttribute('id', 'logo-div');
+        this.div_tag.setAttribute('class', 'centered-element');
+        
+        this.img_tag = document.createElement('img');
+        this.img_tag.setAttribute('id', 'logo');
+        this.img_tag.setAttribute('src', 'media/logo.png');
+        this.img_tag.addEventListener('click', this.onClick);
+
+        this.text_tag = document.createElement('p');
+        this.text_tag.setAttribute('class', 'quote-text');
+        this.text_tag.setAttribute('id', 'quote');
+        this.text_tag.innerHTML = `
+        "The most merciful thing in the world, I think, 
+        is the inability of the human mind to correlate all its contents. 
+        We live on a placid island of ignorance in the midst of black seas of infinity, 
+        and it was not meant that we should voyage far."`;
+
+        this.quo_tag = document.createElement('p');
+        this.quo_tag.setAttribute('id', 'author');
+        this.quo_tag.setAttribute('class', 'quote-text');
+        this.quo_tag.innerHTML = 'H.P. Lovecraft' ;
+
+        this.div_tag.appendChild(this.img_tag);
+        this.div_tag.appendChild(this.text_tag);
+        this.div_tag.appendChild(this.quo_tag);
+        document.body.appendChild(this.div_tag);
+
+    }
+
+    onClick(){
+
+        page_objects['audio_button'] = new AudioButton();
+        // playTrack();
+    
+        var starfield = page_objects['starfield'] = new StarField(100, 3);
+    
+        var intro_div = document.getElementById('logo-div');
+        var logo = document.getElementById('logo');
+        setTimeout(() => logo.classList.add('fade-out-element'), 1750);
+    
+        var text = document.getElementById('quote');
+        text.classList.add('fade-out-element');
+        var auth = document.getElementById('author');
+        auth.classList.add('fade-out-element');
+    
+        setTimeout(() => intro_div.remove(), 4000);
+        setTimeout(() => starfield.spawn(), 3000);
+        setTimeout(() => new Symbol(), 5000);
+        setTimeout(() => window.requestAnimationFrame(draw), 3000);
+
+    }
+
+};
+
+class AudioButton{
+    constructor(){
+
+        this.audio_tag = document.createElement('audio');
+        this.audio_tag.setAttribute('id', 'backtrack');
+        this.audio_tag.setAttribute('src', 'media/track.mp3');
+
+        this.btn_tag = document.createElement('button');
+        this.btn_tag.setAttribute('id', 'audio-button');
+        this.btn_tag.setAttribute('class', 'play-button');
+        this.btn_tag.classList.add('fade-in-element');
+        // this.btn_tag.setAttribute('onclick', 'playButton()');
+        
+        this.btn_tag.addEventListener('click', () => {var self = this; self.onClick();});
+        this.your_mom = 3;
+
+        document.body.appendChild(this.audio_tag);
+        document.body.appendChild(this.btn_tag);
+
+        var backtrack = document.getElementById('backtrack');
+        backtrack.play();
+        
+    }
+
+    onClick(){
+
+        if (this.btn_tag.classList.contains('play-button')){
+            this.btn_tag.classList.add('stop-button');
+            this.btn_tag.classList.remove('play-button');
+            this.audio_tag.pause();
+        } else {
+            this.btn_tag.classList.add('play-button');
+            this.btn_tag.classList.remove('stop-button');
+            this.audio_tag.play();
+        }
+
+    }
+
+};
+
+var page_objects = {};
+page_objects['logo'] = new CthulhuLogo();
