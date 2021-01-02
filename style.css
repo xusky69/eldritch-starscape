@@ -2,11 +2,11 @@
 /**** body  *************************/
 /************************************/
 
-head, html, body {
+html, head, body {
     background-color: black;
     margin: 0%;
-    width: 100%;
-    height: auto;
+    height: 100%;
+    width: auto;
 }
 
 #symbol{
@@ -35,8 +35,8 @@ head, html, body {
 }
 
 canvas {
+    height: 100%;
     width: 100%;
-    height: auto;
     display: block;
     position: fixed;
     top: 0;
@@ -46,9 +46,9 @@ canvas {
     animation: fade-in 5.0s ease-in both;
 }
 
-/* .fullScreen { 
+.fullScreen { 
     height: 100%; 
-} */
+}
 
 /************************************/
 /****  intro text  ******************/
@@ -187,6 +187,7 @@ canvas {
       opacity: 1;
     }
 } */
+
 @keyframes fade-in {
     0% {
         /* transform: translate(-50%, -50%) scale(0.95); */

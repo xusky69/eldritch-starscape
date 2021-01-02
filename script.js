@@ -2,8 +2,6 @@
 /**** starscape *********************/
 /************************************/
 
-// based on the starfield by 
-
 function randomInt(min_val, max_val){
     let num = min_val + (max_val-min_val + 1)*Math.random();
     return Math.floor(num);
@@ -14,12 +12,10 @@ function distanceR2(x1, y1, x2, y2){
 };
 
 function windowResize() {
-
     var canvas = document.getElementById('starfield');
     canvas.width  = window.innerWidth;
     canvas.height = window.innerHeight;
 };
-  
 
 // drawStar function taken from http://jsfiddle.net/m1erickson/8j6kdf4o/
 function drawStar(ctx, cx, cy, spikes, outerRadius, innerRadius, rotation) {
@@ -52,15 +48,12 @@ function drawStar(ctx, cx, cy, spikes, outerRadius, innerRadius, rotation) {
 function draw(){
 
     page_objects['starfield'].update();
-
     window.requestAnimationFrame(draw);
 
 };
 
 class Star{
-
     constructor(X, Y, max_speed){
-
         let colors = ['white', 'white', 'white'];
 
         this.X = X;
@@ -76,15 +69,12 @@ class Star{
         this.speed = Math.max(Math.random() * max_speed, 1);
         this.color = colors[randomInt(0,2)];
         this.rotation = Math.random()*Math.PI;
- 
     }
 
     draw(){
-
         var canvas = document.getElementById('starfield');
         var ctx = canvas.getContext("2d");
         ctx.fillStyle = this.color;
-        // ctx.fillRect(this.x + this.X/2, this.y + this.Y/2, 5, 5);
         let scale = 1.0;
         drawStar(ctx, this.x + this.X/2, this.y + this.Y/2, 6, scale*6, scale*1, this.rotation);
     }
@@ -111,7 +101,7 @@ class StarField{
         canvas_tag.width = this.X;
         canvas_tag.height = this.Y;
 
-        window.addEventListener('resize', windowResize);
+        // window.addEventListener('resize', windowResize);
     
         document.body.appendChild(div_tag);
         div_tag.appendChild(canvas_tag);
@@ -129,11 +119,8 @@ class StarField{
 
             var star = this.stars[i];
             var increment = Math.min(star.speed, Math.abs(star.speed / star.slope));
-            
             star.x += (star.x > 0) ? increment : -increment ;
-
             star.y = star.slope * star.x;
-            
             star.opacity += star.speed / 100;
             star.checkBoundaries();
 
@@ -172,28 +159,14 @@ class Symbol{
         this.symbol_tag.setAttribute('id', 'symbol');
         this.symbol_tag.setAttribute('src', 'media/azatoth.png');
         this.symbol_tag.setAttribute('alt', 'missing image');
-        // this.symbol_tag.classList.add('fade-in-element');
         document.body.appendChild(this.symbol_tag);
-        // alert('yolo')
     }
-    // static onClick(symbol){
-    //     null;
-    // }
 };
 
 
 /************************************/
 /**** Intro page  *******************/
 /************************************/
-
-function audioButton(){
-    var tag = document.createElement('button');
-    tag.setAttribute('id', 'audio-button');
-    tag.setAttribute('class', 'play-button');
-    tag.classList.add('fade-in-element');
-    tag.setAttribute('onclick', 'playButton()');
-    document.body.appendChild(tag);
-}
 
 class CthulhuLogo{
 
@@ -226,13 +199,11 @@ class CthulhuLogo{
         this.div_tag.appendChild(this.text_tag);
         this.div_tag.appendChild(this.quo_tag);
         document.body.appendChild(this.div_tag);
-
     }
 
     onClick(){
 
         page_objects['audio_button'] = new AudioButton();
-        // playTrack();
     
         var starfield = page_objects['starfield'] = new StarField(100, 3);
     
@@ -249,7 +220,6 @@ class CthulhuLogo{
         setTimeout(() => starfield.spawn(), 3000);
         setTimeout(() => new Symbol(), 5000);
         setTimeout(() => window.requestAnimationFrame(draw), 3000);
-
     }
 
 };
@@ -279,7 +249,6 @@ class AudioButton{
     }
 
     onClick(){
-
         if (this.btn_tag.classList.contains('play-button')){
             this.btn_tag.classList.add('stop-button');
             this.btn_tag.classList.remove('play-button');
@@ -289,7 +258,6 @@ class AudioButton{
             this.btn_tag.classList.remove('stop-button');
             this.audio_tag.play();
         }
-
     }
 
 };
