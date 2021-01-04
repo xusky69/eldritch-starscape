@@ -180,7 +180,6 @@ class Azatoth{
         this.div_tag.classList.add('fade-out-element-2');
         setTimeout(() => this.div_tag.style.display = 'none', 500);
     }
-
 }
 
 var page_objects = [];

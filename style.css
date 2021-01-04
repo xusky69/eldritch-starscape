@@ -1,38 +1,14 @@
 /************************************/
-/**** body  *************************/
+/**** page setup  *******************/
 /************************************/
 
 html, head, body {
     background-color: black;
     margin: 0%;
+    padding: 0%;
     height: 100%;
     width: auto;
 }
-
-#symbol{
-    z-index: 1;
-    position: fixed;
-    left: 50%;
-    top: 52.5%;
-    display: block;
-    cursor: pointer;
-    margin-left: auto;
-    margin-right: auto;
-    min-width: 30.5%;
-    max-width: 30.5%;
-    transform: translate(-50%, -50%);
-    transition: all 1.5s ease;
-    animation: fade-in 5.0s ease-in both;
-    opacity: 1.0;
-    /* transition: all 1.5s ease; */
-}
-
-/* #symbol:hover{ */
-    /* opacity: 1.0; */
-    /* filter: drop-shadow(0px 0px 0.75em orange); */
-    /* box-shadow: 0px 0px 10px 10px rgba(255,255,255,1); */
-    /* animation: fade-in 5.0s ease-in both; */
-/* } */
 
 canvas {
     height: 100%;
@@ -58,15 +34,15 @@ canvas {
     position: fixed;
     left: 50%;
     top: 50%;
-    min-width: 35%;
-    max-width: 45%;
+    min-width: 75vh;
+    max-width: 75vh;
     transform: translate(-50%, -50%);
     z-index: 1;
 
-    /* -webkit-animation: fade-in 2.0s ease-in both; */
     animation: fade-in 2.0s ease-in both;
 
 }
+
 
 .quote-text{
     color: white;
@@ -91,10 +67,9 @@ canvas {
     cursor: pointer;
     margin-left: auto;
     margin-right: auto;
-    min-width: 35%;
-    max-width: 40%;
+    min-width: 40vh;
+    max-width: 40vh;
     
-    /* -webkit-transition: all 1.5s ease; */
     transition: all 1.5s ease;
 }
 
@@ -111,9 +86,9 @@ canvas {
     position: fixed;
     margin-right: auto;
     margin-bottom: auto;
-    left: 98%;
-    top: 96.5%;
-    display: inline-block;
+    left: 97.5%;
+    top: 95vh;
+    display: block;
     z-index: 3;
 
 
@@ -125,9 +100,9 @@ canvas {
     text-align: center;
     text-decoration: none;
 
-    border-top: 10px solid transparent;
-    border-left: 17.5px solid white;
-    border-bottom: 10px solid transparent;
+    border-top: 1.5vh solid transparent;
+    border-left: 2.5vh solid white;
+    border-bottom: 1.5vh solid transparent;
 
 }
 
@@ -136,9 +111,9 @@ canvas {
     position: fixed;
     margin-right: auto;
     margin-bottom: auto;
-    left: 98%;
-    top: 96.5%;
-    display: inline-block;
+    left: 97.5%;
+    top: 95vh;
+    display: block;
     z-index: 3;
 
     /* appearance */
@@ -149,13 +124,169 @@ canvas {
     text-align: center;
     text-decoration: none;
 
-    height: 20px;
-    width: 20px;
+    height: 2.75vh;
+    width: 2.75vh;
 }
+
+/************************************/
+/****  book  ************************/
+/************************************/
+
+.centered-element-2 {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    min-width: 0%;
+    max-width: 100%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+
+    /* transition: all 1.25s ease; */
+
+    /* -webkit-animation: fade-in 2.0s ease-in both; */
+    /* animation: fade-in 1.5s ease-in both; */
+}
+
+#symbol {
+    display: block;
+    /* cursor: pointer; */
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 60vh;
+    max-width: 60vh;
+    
+    /* -webkit-transition: all 1.5s ease; */
+    transition: all 1.5s ease;
+}
+
+.god-name{
+    position: fixed;
+    color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    font-family: 'lovecraft', Georgia, 'Times New Roman', Times, serif;
+    /* font-style: oblique; */
+    font-size: 3vh;
+    font-weight: lighter;
+    transform: translate(-50%, -50%);
+    transition: all 1.25s ease;
+    text-align: center;
+}
+
+.god-name:hover{
+    filter: drop-shadow(0px 0px 0.35em white);
+}
+
+#azatoth-name{
+    left: -5vh;
+    top: 32.5vh;
+}
+
+#nyarlathotep-name{
+    left: 70vh;
+    top: 32.5vh;
+}
+
+@font-face {
+    font-family: 'lovecraft';
+    src: url('media/lovecraft.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+     url('media/lovecraft.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}  
+
+.text-box{
+
+    position: fixed;
+    color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 60vh;
+    max-width: 60vh;
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: oblique;
+    font-size: 1.75vh;
+
+    transform: translate(-50%, -20%);
+    transition: all 1.25s ease;
+    left: 35vh;
+}
+
+.banner{
+
+    position: fixed;
+    color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 50vh;
+    max-width: 50vh;
+
+    transform: translate(-50%, -135%);
+    transition: all 1.25s ease;
+    left: 35vh;
+}
+
+
+.picture{
+
+    position: fixed;
+    color: white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 60vh;
+    max-width: 60vh;
+
+    transform: translate(-50%, -50%);
+    transition: all 1.25s ease;
+    left:-35vh;
+
+}
+
+
+#arrow {
+    /* positioning */
+    position: fixed;
+    margin-right: auto;
+    margin-bottom: auto;
+    left: 0.5vh;
+    top: 95vh;
+    display: block;
+    z-index: 3;
+
+    /* appearance */
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+
+    border-top: 1.5vh solid transparent;
+    border-right: 2.5vh solid white;
+    border-bottom: 1.5vh solid transparent;
+}
+
 
 /************************************/
 /****  animations  ******************/
 /************************************/
+
+.fade-out-left{
+	animation: fade-out-left 0.6s ease-out both;
+}
+
+.fade-out-right{
+	animation: fade-out-right 0.6s ease-out both;
+}
+
+.fade-in-right {
+	animation: fade-in-right 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+.fade-in-left {
+	animation: fade-in-left 0.6s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
 
 .fade-out-element{
     /* -webkit-animation: fade-out 1s ease-out both; */
@@ -167,34 +298,41 @@ canvas {
     animation: fade-in 2.0s ease-in both;
 }
 
-@keyframes pulse {
-	0% {
-		transform: scale(0.95);
-	}
-	70% {
-		transform: scale(1);
-		filter: drop-shadow(0px 0px 0.5em crimson);
-	}
-	100% {
-		transform: scale(0.95);
-	}
+.fade-in-element-2{
+    /* -webkit-animation: fade-in 2.0s ease-in both; */
+    animation: fade-in 0.5s ease-in both;
 }
- /* @-webkit-keyframes fade-in {
+
+.fade-out-element-2{
+    /* -webkit-animation: fade-out 1s ease-out both; */
+    animation: fade-out 0.5s ease-out both;
+}
+
+@keyframes fade-out-left {
     0% {
-      opacity: 0;
-    }
-    100% {
       opacity: 1;
     }
-} */
+    100% {
+        transform: translate(-25%, -50%);
+      opacity: 0;
+    }
+}
+
+@keyframes fade-out-right {
+    0% {
+    opacity: 1;
+    }
+    100% {
+    transform: translate(-75%, -50%);
+    opacity: 0;
+    }
+}
 
 @keyframes fade-in {
     0% {
-        /* transform: translate(-50%, -50%) scale(0.95); */
         opacity: 0;
     }
     100% {
-        /* transform: translate(-50%, -50%) scale(1.0); */
         opacity: 1;   
     }
 }
@@ -202,11 +340,31 @@ canvas {
 @keyframes fade-out {
     0% {
       opacity: 1;
-      /* transform: translate(-50%, -50%) scale(1.0); */
     }
     100% {
       opacity: 0;
-      /* transform: translate(-50%, -50%) scale(0.9); */
     }
 }
+
+ @keyframes fade-in-right {
+    0% {
+      transform: translateX(50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fade-in-left {
+    0% {
+      transform: translateX(-50px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
   
