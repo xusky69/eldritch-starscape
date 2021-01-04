@@ -110,6 +110,11 @@ class StarField{
             this.stars[i].checkBoundaries();
             this.stars[i].draw();
         }
+
+        // let div_tag = document.getElementById('div-starfield');
+        setTimeout(() => {div_tag.classList.add('fade-out-element')}, 10000)
+        setTimeout(() => {canvas_tag.remove(); div_tag.remove()}, 12000);
+        setTimeout(() => new Symbol(), 13000);
     
     };
 
@@ -157,7 +162,7 @@ class Symbol{
     constructor(){
         this.symbol_tag = document.createElement('img');
         this.symbol_tag.setAttribute('id', 'symbol');
-        this.symbol_tag.setAttribute('src', 'media/azatoth.png');
+        this.symbol_tag.setAttribute('src', 'media/symbol.png');
         this.symbol_tag.setAttribute('alt', 'missing image');
         document.body.appendChild(this.symbol_tag);
     }
@@ -218,7 +223,6 @@ class CthulhuLogo{
     
         setTimeout(() => intro_div.remove(), 4000);
         setTimeout(() => starfield.spawn(), 3000);
-        setTimeout(() => new Symbol(), 5000);
         setTimeout(() => window.requestAnimationFrame(draw), 3000);
     }
 
