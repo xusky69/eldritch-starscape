@@ -112,8 +112,8 @@ class StarField{
         }
 
         // let div_tag = document.getElementById('div-starfield');
-        setTimeout(() => {div_tag.classList.add('fade-out-element')}, 10000)
-        setTimeout(() => {canvas_tag.remove(); div_tag.remove()}, 12000);
+        setTimeout(() => {div_tag.classList.add('fade-out-element')}, 7000)
+        setTimeout(() => {canvas_tag.remove(); div_tag.remove()}, 9000);
         setTimeout(() => new Symbol(), 13000);
     
     };
