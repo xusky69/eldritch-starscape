@@ -282,16 +282,27 @@ class Symbol{
         this.azatoth_tag.setAttribute('id', 'azatoth-name');
         this.azatoth_tag.innerHTML = `Azatoth`;
         this.azatoth_tag.addEventListener('click', () => {var self = this; self.onClickAzatoth();});
+        this.azatoth_tag.style.display = 'none';
 
         this.nyarlathotep_tag = document.createElement('p');
         this.nyarlathotep_tag.setAttribute('class', 'god-name');
         this.nyarlathotep_tag.setAttribute('id', 'nyarlathotep-name');
         this.nyarlathotep_tag.innerHTML = `Nyarlathotep`;
         this.nyarlathotep_tag.addEventListener('click', () => {var self = this; self.onClickNyarlathotep();});
+        this.nyarlathotep_tag.style.display = 'none';
 
         this.div_tag.appendChild(this.img_tag);
         this.div_tag.appendChild(this.azatoth_tag);
         this.div_tag.appendChild(this.nyarlathotep_tag);
+
+        setTimeout(() => {
+            this.nyarlathotep_tag.style.display = 'block';
+            this.nyarlathotep_tag.classList.add('fade-in-element-2')
+        }, 500);
+        setTimeout(() => {
+            this.azatoth_tag.style.display = 'block';
+            this.azatoth_tag.classList.add('fade-in-element-2')
+        }, 500);
 
         document.body.appendChild(this.div_tag);
 
